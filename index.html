@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>e</title>
+<script type="text/javascript">
+
+window.onload=function(){ //当程序加载时候
+var timer = null;
+SetTime(); //调用SetTime开始计时
+
+var exam_selt = document.getElementById("exam_selt");
+
+}
+function Onchage(){
+if(exam_selt.value == "1"){
+document.getElementById("1").style.display="block";
+document.getElementById("2").style.display="none";
+document.getElementById("timer").style.display="block";
+
+ClearTime();
+
+
+
+}else if(exam_selt.value == "2"){
+document.getElementById("2").style.display="block";
+document.getElementById("1").style.display="none";
+document.getElementById("timer").style.display="block";
+ClearTime();
+
+}
+else{
+document.getElementById("timer").style.display="none";
+document.getElementById("2").style.display="none";
+document.getElementById("1").style.display="none";
+}
+}
+</script>
+</head>
+
+<body>
+<form action="defen.html" method="get" name="radio" id="form1">
+科目选择：
+<select name="kemu" id="exam_selt" onchange="Onchage()">
+<option  selected="selected" value="0">请选择</option>
+<option value="1">心理健康</option>
+<option value="2">毛浙东思想概论</option>
+</select>
+<div id="timer" style="color:red; border: 1px solid; width:600px; height:20px; display:none"></div>
+<div id="1" style="border:1px solid; width:600px; height:450px; display:none"  >
+
+<table>
+<tr><td colspan="4">一、单选题（10分，每小题4分，满分40分。）</td></tr>
+<tr><td colspan="4"><label id="1st">1.人的生理和心理发展趋于成熟的关键时期是（）。</label></td></tr>
+<tr>
+<td><input type="radio" name="1" id="1A" value="A" />A．初中时期</td>
+
+<td><input type="radio" name="1"  id="1B" value="B" />B.高中时期</td>
+
+<td><input type="radio" name="1" id="1C" value="C" />C.大学时期</td>
+
+<td><input type="radio" name="1" id="1D" value="D" />D.成年期</td>
+</tr>
+<tr><td colspan="4"><label id="2st">2.21世纪成为人才的首要条件是（）。</label></td></tr>
+<tr>
+<td><input type="radio" name="2" id="2A" value="A" />A.身体健康</td>
+
+<td><input type="radio" name="2"  id="2B" value="B" />B.心理健康</td>
+
+<td><input type="radio" name="2" id="2C" value="C" />C.社会适应良好</td>
+
+<td><input type="radio" name="2" id="2D" value="D" />D.人际关系良好</td>
+</tr>
+<tr><td colspan="4" align="center"><input type="submit" value="提交试卷"  /></td></tr>
+</table>
+</div>
+
+<div id="2" style="border:1px solid; width:600px; height:450px; display:none">
+<div id="" style="color:red; border: 1px solid;"></div>
+
+
+
+</div>
+</div>
+</form>
+ <script type="text/javascript">
+ /* 倒计时 */
+ var maxtime = 30*60;
+ function CountDown(){  
+ if(maxtime>=0){  
+  minutes = Math.floor(maxtime/60);  
+  seconds = Math.floor(maxtime%60);  
+ msg = "距离结束还有"+minutes+"分"+seconds+"秒";  
+ document.all["timer"].innerHTML=msg; 
+   
+ if(maxtime == 5*60)
+  alert('注意，还有5分钟!');  
+      --maxtime;  
+ }  
+ else{  
+ clearInterval(timer);  
+ alert("时间到，结束!"); 
+ location.href="defen.html"; 
+ }  
+}  
+
+function SetTime(){
+timer = setInterval("CountDown()",1000); 
+}
+function ClearTime(){
+maxtime = 30*60;
+}
+
+</script> 
+</body>
+</html>
